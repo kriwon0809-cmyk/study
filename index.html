@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>공부메이트</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="app">
+
+  <header>
+    <div>
+      <p class="small">STUDY MATE</p>
+      <h1>오늘 공부, 한눈에.</h1>
+    </div>
+    <button onclick="resetToday()">오늘 초기화</button>
+  </header>
+
+  <!-- 오늘의 통계 -->
+  <section class="stats">
+    <div class="card">
+      <span>오늘 공부</span>
+      <strong id="studyTime">0분</strong>
+    </div>
+
+    <div class="card">
+      <span>완료한 할 일</span>
+      <strong id="completed">0 / 0</strong>
+    </div>
+
+    <div class="card">
+      <span>연속 공부</span>
+      <strong id="streak">0일</strong>
+    </div>
+  </section>
+
+  <!-- 타이머 -->
+  <section class="card timer">
+
+    <div class="section-title">
+      <div>
+        <p class="small">FOCUS TIMER</p>
+        <h2>공부 타이머</h2>
+      </div>
+
+      <select id="subject">
+        <option>수학</option>
+        <option>국어</option>
+        <option>영어</option>
+        <option>과학</option>
+        <option>사회</option>
+        <option>한국사</option>
+        <option>기타</option>
+      </select>
+    </div>
+
+    <div id="timer">25:00</div>
+
+    <div class="timer-buttons">
+      <button onclick="startTimer()" id="startBtn">시작</button>
+      <button onclick="resetTimer()">초기화</button>
+    </div>
+
+    <div class="presets">
+      <button onclick="setTimer(25)">25분</button>
+      <button onclick="setTimer(50)">50분</button>
+      <button onclick="setTimer(90)">90분</button>
+      <button onclick="customTimer()">직접 설정</button>
+    </div>
+
+  </section>
+
+  <!-- 할 일 + 디데이 -->
+  <div class="two-column">
+
+    <section class="card">
+      <div class="section-title">
+        <div>
+          <p class="small">TO DO</p>
+          <h2>오늘 할 일</h2>
+        </div>
+
+        <button onclick="showTaskInput()">＋</button>
+      </div>
+
+      <div id="taskInputArea" class="input-area hidden">
+        <input id="taskInput" placeholder="할 일을 입력하세요">
+        <button onclick="addTask()">추가</button>
+      </div>
+
+      <div id="tasks"></div>
+    </section>
+
+
+    <section class="card">
+
+      <div class="section-title">
+        <div>
+          <p class="small">D-DAY</p>
+          <h2>중요한 날짜</h2>
+        </div>
+
+        <button onclick="showDdayInput()">＋</button>
+      </div>
+
+      <div id="ddayInputArea" class="input-area hidden">
+        <input id="ddayTitle" placeholder="시험 이름">
+        <input id="ddayDate" type="date">
+        <button onclick="addDday()">추가</button>
+      </div>
+
+      <div id="ddays"></div>
+
+    </section>
+
+  </div>
+
+
+  <!-- 과목별 공부량 -->
+  <section class="card">
+
+    <div class="section-title">
+      <div>
+        <p class="small">STUDY STATISTICS</p>
+        <h2>과목별 공부량</h2>
+      </div>
+    </div>
+
+    <div id="subjectStats"></div>
+
+  </section>
+
+
+  <!-- 메모 -->
+  <section class="card">
+
+    <div class="section-title">
+      <div>
+        <p class="small">STUDY NOTE</p>
+        <h2>공부 메모</h2>
+      </div>
+
+      <span>자동 저장</span>
+    </div>
+
+    <textarea
+      id="memo"
+      placeholder="오늘 공부한 내용이나 내일 할 일을 적어보세요."
+    ></textarea>
+
+  </section>
+
+
+  <section class="quote card">
+    <p class="small">TODAY</p>
+    <h2 id="quote">
+      작게 시작해도, 시작한 건 사라지지 않아.
+    </h2>
+
+    <button onclick="newQuote()">다른 문장</button>
+  </section>
+
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
